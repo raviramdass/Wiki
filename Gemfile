@@ -39,3 +39,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 # Use Devise for authentication
 gem 'devise', '~> 3.4.1'
+gem "better_errors"
