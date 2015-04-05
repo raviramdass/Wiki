@@ -1,9 +1,25 @@
 class ArticlesController < ApplicationController
   def index     
+    @articles = Article.all
   end
 
   def new
     @article = Article.new
+  end
+  
+  def edit
+  end
+  
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+      flash[:notice] = "Article was deleted successfully."
+    else
+      flash[:notice] = "There was an error deleting article."
+      render :index
+    end
+  
+  
   end
   
   def create
