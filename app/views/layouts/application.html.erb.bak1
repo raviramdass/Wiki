@@ -1,25 +1,27 @@
 <!DOCTYPE html>
+<html> </html>
 <head>
-  <title></title>
-  <ul class="nav navbar-nav"><%= link_to "New Article", new_article_path %></ul>
+  <title>Wiki</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
-
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <%= link_to "Wiki", root_path, class: "navbar-brand" %>
     
-        <div class="pull-right user-info">
-    <% if current_user %>
-          Hello <%= current_user.email %>! 
-          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-    <%= link_to "Sign In", new_user_session_path %> or
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
-  </div>
+        <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">Hello <%= current_user.email %>! <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></ul>
+        <ul class="nav navbar-nav"><%= link_to "New Article", new_article_path %></ul>
+            
+        <% else %>
+             <%= link_to "Sign In", new_user_session_path %> or
+             <%= link_to "Sign Up", new_user_registration_path %>
+              <li>
+               
+              </li>
+          <% end %>
       
     </div>
     <p class="notice">
