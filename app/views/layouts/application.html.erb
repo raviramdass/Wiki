@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> </html>
 <head>
   <title>Wiki</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,20 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-    <div class="pull-right user-info">
-      <% if current_user %>
-        Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign In", new_user_session_path %> or
-        <%= link_to "Sign Up", new_user_registration_path %>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <%= link_to "Wiki", root_path, class: "navbar-brand" %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to "New Article", new_article_path %>
+        </li>
         <% end %>
-  </div>
-  </div>
-      
-<%= yield %>
-
-</body>
-</html>
+      </ul>
+    </div>
+    <p class="notice">
+      <%=notice %>
+    </p>
+    <p class="alert">
+      <%= alert %>
+    </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <%=yield %>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-group">
+            <li>
+              <%= link_to "All Articles", root_path, class: "list-group-item" %>
+            </li>
+            <%Category.all.each do |category| %>
+              <li>
+                <%= link_to category.name, articles_path(category: category.name), class: "list-group-item" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>

@@ -1,7 +1,7 @@
 <%= @articles.each do |article| %>
 <%= link_to article.title, article %>
-<p>Created at
+<p>
   <%= article.created_at.strftime('%b %d, %Y') %>
-  <% truncate(article.content, length: 200) %>
+  <% truncate(article.content, length: 400) %>
 </p>
-  <% end %>
+<% end %>

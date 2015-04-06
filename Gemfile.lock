@@ -28,11 +28,16 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (5.1.8)
+      execjs
+      json
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -126,13 +131,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails (~> 5.1.8)
   better_errors
+  bootstrap-sass (~> 3.2.0.2)
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.1)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.8)
-  sass-rails (~> 4.0.3)
+  sass-rails (~> 4.0.0)
   sdoc (~> 0.4.0)
   spring
   sqlite3
