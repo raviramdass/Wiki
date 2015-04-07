@@ -45,3 +45,4 @@ gem "better_errors"
 gem 'redcarpet', '~> 3.2.2'
 gem 'pundit'
 gem 'stripe'
+gem "figaro"
