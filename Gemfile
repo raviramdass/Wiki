@@ -43,3 +43,4 @@ gem 'spring',        group: :development
 gem 'devise', '~> 3.4.1'
 gem "better_errors"
 gem 'redcarpet', '~> 3.2.2'
+gem 'pundit'
